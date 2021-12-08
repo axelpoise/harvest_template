@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# CDK
+.cdk.staging
+cdk.out
+cdk.context.json
+environment.py
+
+
