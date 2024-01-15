@@ -11,9 +11,9 @@ class StorageSetupStack(cdk.Stack):
 
 
     def add_s3_buckets(self, name: str):
+        self.bronze_bucket: cdk.aws_s3.Bucket = cdk.aws_s3.Bucket(self, f"BronzeBucket{name}",
+                          block_public_access=cdk.aws_s3.BlockPublicAccess.BLOCK_ALL,
+                          removal_policy=cdk.RemovalPolicy.DESTROY,
+                          access_control=cdk.aws_s3.BucketAccessControl.PRIVATE,
+                          )
 
-        self.raw_bucket: aws_s3.Bucket = aws_s3.Bucket(self, f"BronzeBucket{name}",
-                      block_public_access=aws_s3.BlockPublicAccess.BLOCK_ALL,
-                      removal_policy=core.RemovalPolicy.DESTROY,
-                      access_control=aws_s3.BucketAccessControl.PRIVATE,
-                      )
