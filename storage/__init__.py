@@ -1,13 +1,12 @@
-from aws_cdk import core, aws_s3
+import aws_cdk as cdk
 
 from environment import get_environment
+from constructs import Construct
 
+class StorageSetupStack(cdk.Stack):
 
-class BaseSetupStack(core.Stack):
-
-    def __init__(self, scope: core.Construct, construct_id: str, name: str) -> None:
+    def __init__(self, scope: Construct, construct_id: str, name: str) -> None:
         super().__init__(scope, construct_id, env=get_environment())
-
         self.add_s3_buckets(name)
 
 
